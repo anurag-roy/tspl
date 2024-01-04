@@ -83,3 +83,13 @@ test('wait', async (t) => {
 
   await completed
 })
+
+test('simple subtest plan', async (t) => {
+  const { test } = tspl(t, { plan: 1 })
+
+  await test('simple test plan', (t) => {
+    const { strictEqual } = tspl(t, { plan: 1 })
+
+    strictEqual(1, 1)
+  })
+})
