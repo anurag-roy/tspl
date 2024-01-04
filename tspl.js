@@ -45,6 +45,11 @@ function tspl (t, opts = {}) {
     end
   }
 
+  res.test = (...args) => {
+    actual++
+    return t.test(...args)
+  }
+
   for (const method of Object.keys(assert)) {
     if (method.match(/^[a-z]/)) {
       res[method] = (...args) => {
